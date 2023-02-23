@@ -6,7 +6,7 @@ const ipfs = ipfsAPI("/ip4/127.0.0.1/tcp/5001");
 /* GET users listing. */
 router.get("/", async (req, res, next) => {
   try {
-    ipfs.files.add(Buffer.from("Hello, World!"), (err, result) => {
+    ipfs.files.add(Buffer.from("SALTEIMN ESTP"), (err, result) => {
       if (err) throw err;
       console.log(result[0].hash);
     });
