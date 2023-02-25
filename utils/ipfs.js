@@ -6,7 +6,7 @@ const client = ipfsClient.create(ipfsConfig);
 // ipfs file 생성
 const createFile = async (data) => {
   try {
-    const fileAdded = await client.add(JSON.stringify(fileAdded));
+    const fileAdded = await client.add(JSON.stringify(data));
     console.log("fileAdded: ", fileAdded);
     return fileAdded;
   } catch (error) {
