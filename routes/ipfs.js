@@ -6,7 +6,7 @@ const controller = require("../controllers/ipfs");
 router.post("/create", controller.postFile);
 
 // 파일 조회
-router.get("/read", controller.getFile);
+router.get("/read/:cid", controller.getFile);
 
 // 파일 수정
 router.patch("/update", controller.patchFile);

@@ -1,5 +1,4 @@
 const ipfsConfig = require("../config/ipfs");
-// import ipfsClient from "ipfs-http-client";
 const ipfsClient = require("ipfs-http-client");
 const client = ipfsClient.create(ipfsConfig);
 
@@ -17,6 +16,8 @@ const createFile = async (data) => {
 // ipfs file 조회
 const readFile = async (cid) => {
   try {
+    const file = await client.cat(cid);
+    return file;
   } catch (error) {
     console.log("error: ", error);
   }
@@ -25,6 +26,8 @@ const readFile = async (cid) => {
 // ipfs file 수정
 const updateFile = async (cid, data) => {
   try {
+    const fileAdded = await ipfs.add(JSON.stringify(data), { cid });
+    return fileAdded;
   } catch (error) {
     console.log("error: ", error);
   }
@@ -33,6 +36,8 @@ const updateFile = async (cid, data) => {
 // ipfs file 삭제
 const deleteFile = async (cid) => {
   try {
+    await client.pin.rm(cid);
+    console.log(`deleted ${cid}`);
   } catch (error) {
     console.log("error: ", error);
   }
