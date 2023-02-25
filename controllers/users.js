@@ -10,14 +10,14 @@ const postUserInfo = async (req, res) => {
     console.log("body: ", body);
     const ipfsData = {
       email: body?.email,
-      smtiResult: body?.smtiResult,
+      smti: body?.smti,
     };
     const ipfsFile = await ipfs.createFile(ipfsData);
 
     const payload = {
       name: body?.name,
       email: body?.email,
-      smtiResult: ipfsFile?.path,
+      smti: ipfsFile?.path,
     };
 
     const docs = await service.create(Infos, payload);
