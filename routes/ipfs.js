@@ -1,16 +1,44 @@
 const express = require("express");
 const router = express.Router();
-const ipfsAPI = require("ipfs-api");
-const ipfs = ipfsAPI("/ip4/127.0.0.1/tcp/5001");
+const ipfs = require("../utils/ipfs");
 
-/* GET users listing. */
-router.get("/", async (req, res, next) => {
+// 파일 생성
+router.post("/create", async (req, res, next) => {
   try {
-    ipfs.files.add(Buffer.from("SALTEIMN ESTP"), (err, result) => {
-      if (err) throw err;
-      console.log(result[0].hash);
-    });
+    const body = req.body;
+    console.log("body: ", body);
+    const ipfsFile = await ipfs.createFile(body);
+    res.send(ipfsFile);
+  } catch (error) {
     res.send("respond with a resource");
+  }
+});
+
+// 파일 조회
+router.get("/read", async (req, res, next) => {
+  try {
+    const body = req.body;
+    res.send("test");
+  } catch (error) {
+    res.send("respond with a resource");
+  }
+});
+
+// 파일 수정
+router.patch("/update", async (req, res, next) => {
+  try {
+    const body = req.body;
+    res.send("test");
+  } catch (error) {
+    res.send("respond with a resource");
+  }
+});
+
+// 파일 삭제
+router.delete("/delete", async (req, res, next) => {
+  try {
+    const body = req.body;
+    res.send("test");
   } catch (error) {
     res.send("respond with a resource");
   }
