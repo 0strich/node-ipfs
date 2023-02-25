@@ -17,7 +17,7 @@ const postUserInfo = async (req, res) => {
     const payload = {
       name: body?.name,
       email: body?.email,
-      smtiResult: ipfsFile?.cid,
+      smtiResult: ipfsFile?.path,
     };
 
     const docs = await service.create(Infos, payload);
