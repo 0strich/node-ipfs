@@ -13,6 +13,7 @@ const postUserInfo = async (req, res) => {
       smti: body?.smti,
     };
     const ipfsFile = await ipfs.createFile(ipfsData);
+    console.log("ipfsFile: ", ipfsFile);
 
     const payload = {
       name: body?.name,
