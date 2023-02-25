@@ -9,9 +9,9 @@ router.post("/create", controller.postFile);
 router.get("/read/:cid", controller.getFile);
 
 // 파일 수정
-router.patch("/update", controller.patchFile);
+router.patch("/update/:cid", controller.patchFile);
 
 // 파일 삭제
-router.delete("/delete", controller.deleteFile);
+router.delete("/delete/:cid", controller.deleteFile);
 
 module.exports = router;
