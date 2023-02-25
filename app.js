@@ -1,3 +1,6 @@
+// environment config
+require("dotenv").config();
+
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -9,6 +12,10 @@ const usersRouter = require("./routes/users");
 const ipfsRouter = require("./routes/ipfs");
 
 const app = express();
+const db = require("./utils/db");
+
+// database connect
+db.connectDB();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
