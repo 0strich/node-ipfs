@@ -1,5 +1,5 @@
-// sdk
 const cwr = require(`../utils/createWebResp`);
+const ipfs = require("../utils/ipfs");
 
 // 파일 생성
 const postFile = async (req, res) => {

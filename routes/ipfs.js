@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const ipfs = require("../utils/ipfs");
 const controller = require("../controllers/ipfs");
 
 // 파일 생성
