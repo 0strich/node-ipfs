@@ -20,7 +20,7 @@ const postUserInfo = async (req, res) => {
       smtiResult: ipfsFile?.cid,
     };
 
-    const docs = await service.create(payload);
+    const docs = await service.create(Infos, payload);
 
     return cwr.createWebResp(res, 200, docs);
   } catch (error) {
